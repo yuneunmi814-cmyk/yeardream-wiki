@@ -1,0 +1,133 @@
+---
+type: concept
+aliases: [앱·웹 서비스, 웹 아키텍처, 프론트엔드·백엔드, WAS, Web Application Server]
+stage: 1
+first_seen: 2026-05-26
+last_updated: 2026-05-27
+sources: 2
+related: [[http-protocol]], [[synchronous-vs-asynchronous]], [[rest-api]], [[database-basics]], [[parsing]], [[library-vs-framework]]
+---
+
+# App / Web Services
+
+## 한 줄 정의
+
+사용자에게 도달하는 앱·웹 서비스가 어떻게 구성되는지 — 클라이언트(프론트엔드) ↔ 웹 서버 ↔ 백엔드 ↔ 데이터베이스로 이어지는 통신과 책임 구조.
+
+## 핵심 아이디어
+
+### 강의 시리즈 러닝 예제 — 디지털 명함 앱
+
+```
+명함 촬영 → 명함 사진 정보 전송 → DB 직접 입력 → 디지털 명함
+```
+
+→ 시리즈 전체에서 이 명함 앱이 일관된 학습 예시로 사용됨.
+
+### Web Application Server (WAS) 기본 구조
+
+```
+[클라이언트]   →요청→   [Web Server]  ⇄  [백엔드]  ⇄  [DB]
+(웹 브라우저,  ←응답←   (http 통신)        동작 코드    (각종 정보 저장)
+ 스마트폰)
+```
+
+→ 자세한 통신 흐름은 [[http-protocol]], DB 부분은 [[database-basics]] 참조.
+
+### Endpoint
+
+> "웹 서버의 주소를 가리키는 문자" (강의 본문)
+
+브라우저에 입력하는 `www.google.com`, `www.naver.com` 같은 URL이 endpoint. → [[rest-api]]의 핵심 단위.
+
+### Front-end (클라이언트)
+
+> "서비스에서 처음 만나는 화면으로, 서비스의 의도대로 사용자를 유도"
+
+주요 책임 4가지:
+1. **UI/UX** — 화면과 사용자 경험
+2. **독립적 기능** — 서버 무관하게 동작 (예: 카메라 촬영)
+3. **서버 통신** — HTTP 요청
+4. **사용자 패턴 분석** — Analytics
+
+### UI vs UX
+
+- **UI (User Interface)**: 사용자가 만나는 화면, 디자인 요소
+- **UX (User Experience)**: 서비스 성격에 따라 사용자에게 편리한 경험 제공
+
+> **GUI 메모**: 현대엔 그래픽 환경이 압도적이라 GUI/UI 구분 없이 "UI"로 통용 (강의 본문 메모)
+
+UX 예시 — 카메라 촬영 도달 경로:
+- 긴 경로: 로그인 → 메인 → 메뉴 → 기능 → 촬영
+- 짧은 경로: 로그인 → 메인 하단 버튼 → 촬영
+
+### 반응형 화면 & Grid System
+
+- **Grid System** (웹): 수학적 논리로 페이지 콘텐츠를 일관 구조화 (2/3/4/6 Columns 분할)
+- **Component System** (모바일): 동일 개념의 모바일 버전
+- 다양한 스크린 사이즈 커버 + **동일 정보 제공**
+
+### Back-end
+
+> "서버 측의 동작 Code 비즈니스 로직(Business logic)을 처리" (강의 본문)
+
+> **비즈니스 로직 메모**: 컴퓨터 프로그램에서의 데이터를 **생성·표시·저장·변경**하는 모든 내용
+
+활용 예시 (강의 본문):
+- 명함 정보 저장·변경
+- 쇼핑몰 상품 구매·결제
+- SNS 회원 가입
+
+### 디지털 명함 통신 흐름 (전체 그림)
+
+```
+[명함촬영]
+  → 명함정보 저장 요청 (POST)
+                ↓
+        [Web Server (HTTP 통신)]
+                ↓
+        [Hypertext 파싱 후 저장할 공간 찾기]  ← [[parsing]]
+                ↓
+        [DB에 정보 저장]                      ← [[database-basics]]
+                ↓
+  ← 명함정보 저장 여부
+[명함촬영]
+```
+
+### REST API 첫 등장 (자세히는 [[rest-api]])
+
+> "약속된 지정된 주소(URI)를 가지고 있고, 각 주소에 기능(함수)을 가지고 있는 형태" (강의 본문)
+
+예시 URL: `https://school.elice.io/courses/26028/info` (본 강의 URL)
+
+> **URI vs URL 메모**: URI는 서버에서의 특정 리소스 식별자, URL은 흔히 사용하는 웹사이트 주소. **URI가 URL보다 더 큰 의미**라는 것만 기억하고 넘어가자 (강의 본문).
+> 
+> 보강: 정확히는 **URI = URL ∪ URN**. URN은 위치와 무관한 이름(예: `urn:isbn:0451450523`). 실무에선 URL과 URI를 거의 동의어로 사용.
+
+## 왜 중요한가
+
+- Stage 3 AI 서비스개발자 트랙(Option B)의 토대
+- 1인 컨설팅 클라이언트한테 "이 구조면 이만큼 시간·비용" 산정하는 멘탈 모델
+- 사용자는 이미 SwiftUI(클라이언트)·Cloudflare Pages(정적 호스팅) 경험 → **자기 경험을 강의 용어와 매칭**하는 단계가 학습 효과 큼
+
+## 자주 헷갈리는 것
+
+- **Web Server vs Back-end**: 강의에선 분리해서 그림. Web Server = HTTP 요청 받는 부분, Back-end = 비즈니스 로직 처리. 실무에선 Express·Django 같은 프레임워크가 둘을 한 번에 담당해서 경계가 흐려짐.
+- **앱 vs 웹**: 네이티브 앱(iOS·Android)·하이브리드(React Native)·웹앱(PWA)·일반 웹 — 모두 클라이언트지만 동작 방식 다름.
+- **Endpoint = URL?**: 강의에선 거의 같은 의미로 쓰지만, 엄밀히는 endpoint = API의 특정 기능을 가리키는 URL.
+
+## 관련 페이지
+
+- [[computer-basics]] — 그 아래 깔린 하드웨어/OS
+- [[http-protocol]] — HTTP 통신·메서드·요청·응답 자세히
+- [[synchronous-vs-asynchronous]] — 통신 방식의 두 모드
+- [[rest-api]] — API 설계 패턴
+- [[database-basics]] — 백엔드 뒤의 저장 계층
+- [[parsing]] — Hypertext 파싱 (JSON·XML)
+- [[library-vs-framework]] — 프론트·백엔드 빌드 도구
+
+## 출처
+
+- [[lectures/week-01-day-1]]
+- `raw/stage-1-foundations/[수업자료] 앱_웹 서비스를 위한 모든 것.pdf` (38p, 시리즈 02강)
+- `raw/stage-1-foundations/01-app-web-service.md` (Vision OCR 추출본, 2026-05-27)
