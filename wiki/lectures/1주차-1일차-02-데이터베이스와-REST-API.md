@@ -310,11 +310,38 @@ https://www.apple.com/{국가}/
 
 ## 검증 체크리스트
 
-- [ ] DB vs DBMS 구분 — 강의에서 명확히 다룸?>> 알려줘
-- [ ] PostgreSQL 인기 상승 — 강의 등장?>>알려줘
-- [ ] 로그인 토큰(JWT) — 강의에서 명시?>>알려줘
-- [ ] NoSQL 4유형 (Document·KV·Wide-column·Graph) — 강의 깊이?>>알려줘
-- [ ] Open API 호출 횟수 제한 — 강의 다룸?>>알려줘
+- [ ] DB vs DBMS 구분 — 강의에서 명확히 다룸?
+- [ ] PostgreSQL 인기 상승 — 강의 등장?
+- [ ] 로그인 토큰(JWT) — 강의에서 명시?
+- [ ] NoSQL 4유형 (Document·KV·Wide-column·Graph) — 강의 깊이?
+- [ ] Open API 호출 횟수 제한 — 강의 다룸?
+
+---
+
+## 이해 체크 (은미, 2026-05-29)
+
+- [x] **PUT 멱등성** — 여러 번 해도 결과 같음. PUT·GET·DELETE 멱등 / POST 비멱등. **자동문 vs 결제 버튼** 비유
+- [x] **헤더 vs 바디** — 헤더=메타 라벨, 바디=실제 데이터. **인스타 DM의 라벨 vs 본문**
+- [x] **REST API** — HTTP 4메서드 + URL로 만든 깔끔한 통로 (`GET /users/123`)
+- [x] **CRUD ↔ HTTP** — POST=C / GET=R / PUT·PATCH=U / DELETE=D
+- [x] **PUT vs PATCH** — PUT 전체 교체, PATCH 부분 수정
+- [x] **Query / SQL** — DB에 던지는 명령. SQL=RDB 전용. SELECT·INSERT·UPDATE·DELETE 4개 = CRUD
+- [x] **RDB = 표(엑셀) 형태 DB** — PostgreSQL·MySQL·Oracle·SQLite
+- [x] **Primary Key = 주민등록번호** — 유일 식별, NULL ❌
+- [x] **RDB vs NoSQL** — 엑셀(정확) vs 메모장(자유). **실무는 양쪽 다 씀**
+- [x] **NoSQL 4유형** — Document(MongoDB)·KV(Redis)·Wide-Column(Cassandra)·Graph(Neo4j)
+- [x] **Open API** — 누구나 쓰는 공개 API. 행정안전부·카카오 지도·Claude API. **API Key로 추적·과금**
+- [x] **Rate Limit** — Open API 호출 횟수 제한. 초과 시 **HTTP 429**
+- [x] **DB vs DBMS** — DB=데이터 자체 / DBMS=관리 SW. 실무 거의 혼용
+- [x] **PostgreSQL 인기 상승 이유** — MySQL Oracle 인수 후 PostgreSQL로 이동
+- [x] **캐싱** → [[캐시]] 페이지 참조 (책상 메모지 비유)
+- [x] **JWT** → [[JWT]] 페이지 참조 (영화관 손목 밴드 비유 + JSON Web Token, aaa.bbb.ccc 3파트)
+- [x] **DBMS** = **Da**ta**B**ase **M**anagement **S**ystem (데이터베이스 관리 시스템)
+- [x] **Supabase = PostgreSQL 기반 RDB**. SQL·테이블 작업 가능
+- [x] **PK = 고유번호 = 식별번호** (주민등록번호 비유)
+- [x] **추천 조합** = Python+FastAPI+**Supabase**+SwiftUI/React (Cloudflare 배포)
+- [x] **Open API Rate Limit 관리 6전략**: 빈도↓·캐싱·배치·백오프·유료·모니터링
+- [ ] (아직 막힌 거 있으면 여기 추가)
 
 ---
 
