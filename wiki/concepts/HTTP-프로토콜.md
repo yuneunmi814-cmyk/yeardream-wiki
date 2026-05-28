@@ -1,11 +1,11 @@
 ---
 type: concept
-aliases: [HTTP, HyperText Transfer Protocol, HTTP 메서드, GET, POST, PUT, PATCH, DELETE]
+aliases: [HTTP, HyperText Transfer Protocol, HTTP 메서드, GET, POST, PUT, PATCH, DELETE, HTTPS, Stateless]
 stage: 1
 first_seen: 2026-05-26
-last_updated: 2026-05-27
-sources: 1
-related: [[앱-웹-서비스]], [[REST-API]], [[파싱]], [[동기-vs-비동기]]
+last_updated: 2026-05-28
+sources: 2
+related: [[앱-웹-서비스]], [[REST-API]], [[파싱]], [[동기-vs-비동기]], [[HTTP-상태코드]], [[CORS]], [[TCP-IP-4계층]], [[OSI-7계층]], [[SSL-TLS]], [[쿠키]], [[세션]], [[JWT]]]
 ---
 
 # HTTP Protocol
@@ -139,16 +139,95 @@ DELETE         DELETE
 
 (강의 진행·실습 후 보충 — fetch·axios·requests 등)
 
+---
+
+## 📌 Day 3 누적 (2026-05-28) — 08강 인터넷과 HTTP
+
+### HTTP 위치 — [[OSI-7계층]] 응용 계층 / [[TCP-IP-4계층]] 응용 계층
+
+- HTTP는 [[TCP-UDP|TCP]] 위에서 동작 (4층 위 응용 7층)
+- HTTP만으로는 평문 → [[SSL-TLS|HTTPS]]가 현대 표준
+
+### HTTP 구조 (Request 기준)
+
+```
+GET /api/users HTTP/1.1                ← Start Line (메서드 + URI + 버전)
+Host: example.com                       ← Header (Key: Value 쌍)
+User-Agent: Mozilla/5.0
+Accept: application/json
+                                        ← Empty Line (헤더-본문 구분)
+{"page": 1, "limit": 20}                ← Message Body (POST·PUT일 때)
+```
+
+4파트:
+1. **Start Line** — 요청라인(메서드+URI+버전) 또는 상태라인(버전+코드+메시지)
+2. **Header** — 부가 정보 (Key: Value, : 로 구분)
+3. **Empty Line** — 헤더·본문 구분
+4. **Message Body** — 실제 데이터 (생략 가능)
+
+### Stateless 특성 ⭐
+
+**HTTP는 서버가 클라이언트 상태를 기억하지 않음**.
+
+```
+1번 요청: "안녕"        서버: "안녕"
+2번 요청: "어 나야"     서버: "나가 누구?"   ← 기억 못 함
+```
+
+→ 매번 "내가 누군지" 알려줘야 함. 보완 메커니즘 4종:
+- [[쿠키]] — 클라이언트 저장
+- [[세션]] — 서버 저장
+- [[토큰]] — 자기 충족 인증
+- [[JWT]] — 토큰의 표준 (현대 표장)
+
+### HTTPS = HTTP + [[SSL-TLS|TLS]]
+
+```
+HTTP:   GET /api ─────────────→ 서버   (평문)
+HTTPS:  GET /api ═══암호화═══→ 서버   (TLS 채널)
+```
+
+- 브라우저 주소창 자물쇠 = HTTPS
+- 현대 웹의 강제 표준 (Chrome·Safari가 HTTP에 "위험" 경고)
+- [[SEO]]에 우대
+
+### HTTP 응답 — [[HTTP-상태코드|상태코드]] 5종
+
+- **1xx** 정보 / **2xx** 성공 / **3xx** 리다이렉트 / **4xx** 클라이언트 오류 / **5xx** 서버 오류
+- 자세한 코드 전부 → [[HTTP-상태코드]] 별도 페이지
+
+### 브라우저 보안 — [[CORS]] / SOP
+
+- **SOP** (Same-Origin Policy): 같은 출처만 JS 접근 허용 (브라우저 기본 차단)
+- **CORS** (Cross-Origin Resource Sharing): 서버가 명시적으로 허용
+- Origin = Scheme + Host + Port (셋 다 일치해야 Same-Origin)
+- 자세한 내용 → [[CORS]] 별도 페이지
+
+### Day 3 누적 자주 헷갈리는 것 추가
+
+- **HTTP vs HTTPS**: HTTPS = HTTP + TLS. 평문 vs 암호화
+- **HTTP/1.1 vs HTTP/2 vs HTTP/3**: 1.1은 한 연결당 하나씩, 2는 멀티플렉싱, 3은 UDP 기반(QUIC) — 본 강의 미커버
+- **Stateless vs Stateful**: HTTP 자체는 Stateless, 쿠키·세션 보조로 Stateful한 척
+
+---
+
 ## 관련 페이지
 
 - [[앱-웹-서비스]] — HTTP는 그 안의 통신 계층
 - [[REST-API]] — HTTP 메서드 위에 세워진 API 설계 패턴
 - [[파싱]] — JSON/XML 응답 파싱
 - [[동기-vs-비동기]] — HTTP 요청의 두 가지 호출 방식
+- [[HTTP-상태코드]] — 1xx~5xx 응답 코드
+- [[CORS]] — Cross-Origin 정책
+- [[OSI-7계층]] / [[TCP-IP-4계층]] — HTTP 위치
+- [[SSL-TLS]] — HTTPS 기반
+- [[JWT]] / [[쿠키]] / [[세션]] — Stateless 보완
 
 ## 출처
 
 - [[lectures/1주차-1일차]]
+- [[lectures/1주차-3일차-02-인터넷과-HTTP]] (Day 3, 8강 = HTTP 깊이 풀이)
 - `raw/stage-1-foundations/[수업자료] 앱_웹 서비스를 위한 모든 것.pdf` (38p)
 - `raw/stage-1-foundations/01-app-web-service.md` (Vision OCR 추출본)
 - `raw/stage-1-foundations/02-database-REST-API.md` (Vision OCR 추출본 — REST API와 HTTP 메서드 표 재등장)
+- `raw/stage-1-foundations/08-internet-http.md` (Day 3 — HTTP 구조·상태코드·CORS)

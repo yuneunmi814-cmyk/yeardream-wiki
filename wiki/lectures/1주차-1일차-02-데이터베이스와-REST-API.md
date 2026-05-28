@@ -286,7 +286,7 @@ https://www.apple.com/{국가}/
 
 ### 헷갈렸던 것 ❓
 
-(학습자가 직접 채움)
+빈칸 질문 다 모르겠음
 
 ---
 
@@ -310,11 +310,11 @@ https://www.apple.com/{국가}/
 
 ## 검증 체크리스트
 
-- [ ] DB vs DBMS 구분 — 강의에서 명확히 다룸?
-- [ ] PostgreSQL 인기 상승 — 강의 등장?
-- [ ] 로그인 토큰(JWT) — 강의에서 명시?
-- [ ] NoSQL 4유형 (Document·KV·Wide-column·Graph) — 강의 깊이?
-- [ ] Open API 호출 횟수 제한 — 강의 다룸?
+- [ ] DB vs DBMS 구분 — 강의에서 명확히 다룸?>> 알려줘
+- [ ] PostgreSQL 인기 상승 — 강의 등장?>>알려줘
+- [ ] 로그인 토큰(JWT) — 강의에서 명시?>>알려줘
+- [ ] NoSQL 4유형 (Document·KV·Wide-column·Graph) — 강의 깊이?>>알려줘
+- [ ] Open API 호출 횟수 제한 — 강의 다룸?>>알려줘
 
 ---
 
