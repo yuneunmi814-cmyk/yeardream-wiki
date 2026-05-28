@@ -5,7 +5,7 @@ stage: 1
 first_seen: 2026-05-26
 last_updated: 2026-05-27
 sources: 2
-related: [[crawling]], [[parsing]], [[indexing]], [[app-web-services]]
+related: [[크롤링]], [[파싱]], [[색인]], [[앱-웹-서비스]]
 ---
 
 # SEO (검색엔진 최적화)
@@ -22,8 +22,8 @@ related: [[crawling]], [[parsing]], [[indexing]], [[app-web-services]]
 크롤링 → 색인 생성 → 최종 검색결과 제공
 ```
 
-- [[crawling]] — 웹페이지를 통째로 가져오는 단계 (Googlebot)
-- [[indexing]] — 가져온 페이지를 검색 가능한 구조로 저장
+- [[크롤링]] — 웹페이지를 통째로 가져오는 단계 (Googlebot)
+- [[색인]] — 가져온 페이지를 검색 가능한 구조로 저장
 - 검색결과 제공 — 사용자 질의에 맞춰 색인에서 순위화하여 반환
 
 **SEO의 본질** = "색인 단계에서 더 효율적으로 노출되도록 작업" — 강의 본문 원문 표현.
@@ -76,14 +76,14 @@ related: [[crawling]], [[parsing]], [[indexing]], [[app-web-services]]
 
 ## 관련 페이지
 
-- [[crawling]] — 검색엔진 3단계 중 1단계
-- [[indexing]] — 2단계, SEO 작업의 본질적 대상
-- [[parsing]] — 크롤링과 짝
-- [[app-web-services]] — SEO는 웹 서비스 계층에서 작동
-- [[industry-terms]] — 클라우드·SaaS 인프라 관련
+- [[크롤링]] — 검색엔진 3단계 중 1단계
+- [[색인]] — 2단계, SEO 작업의 본질적 대상
+- [[파싱]] — 크롤링과 짝
+- [[앱-웹-서비스]] — SEO는 웹 서비스 계층에서 작동
+- [[현업-용어]] — 클라우드·SaaS 인프라 관련
 
 ## 출처
 
-- [[lectures/week-01-day-1]]
+- [[lectures/1주차-1일차]]
 - `raw/stage-1-foundations/[수업자료] 검색엔진 최적화 SEO.pdf` (34p, 원본 슬라이드)
 - `raw/stage-1-foundations/04-seo-search-engine-optimization.md` (Vision OCR 추출본, 2026-05-27)

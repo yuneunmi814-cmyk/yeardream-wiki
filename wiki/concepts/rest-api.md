@@ -5,7 +5,7 @@ stage: 1
 first_seen: 2026-05-26
 last_updated: 2026-05-27
 sources: 2
-related: [[http-protocol]], [[database-basics]], [[app-web-services]], [[parsing]], [[synchronous-vs-asynchronous]]
+related: [[HTTP-프로토콜]], [[데이터베이스-기초]], [[앱-웹-서비스]], [[파싱]], [[동기-vs-비동기]]
 ---
 
 # REST API
@@ -31,7 +31,7 @@ related: [[http-protocol]], [[database-basics]], [[app-web-services]], [[parsing
 [프론트엔드(요청)] — GET — [백엔드(응답)] — GET
 ```
 
-→ HTTP 메서드 자세히는 [[http-protocol]] 참조.
+→ HTTP 메서드 자세히는 [[HTTP-프로토콜]] 참조.
 
 ### 로그인 API 예시
 
@@ -84,7 +84,7 @@ https://www.apple.com/{국가코드}/
 
 강의에서 명시:
 - **약속된 URI** = 자원을 식별
-- **메서드별 기능** = GET·POST·PUT·PATCH·DELETE ([[http-protocol]])
+- **메서드별 기능** = GET·POST·PUT·PATCH·DELETE ([[HTTP-프로토콜]])
 
 보강 (강의 미언급, 일반 지식):
 - **자원 중심 URL**: `/users/42` (행위가 아닌 자원 표현)
@@ -115,7 +115,7 @@ https://www.apple.com/{국가코드}/
 
 - **REST vs RESTful**: REST는 원칙(2000년 Roy Fielding 박사논문), RESTful은 그 원칙을 따르는 API. 실무에선 거의 같은 의미.
 - **REST vs GraphQL**: REST는 자원 중심·다중 엔드포인트, GraphQL은 쿼리 중심·단일 엔드포인트
-- **POST vs PUT**: POST=생성, PUT=전체 교체. PATCH가 부분 수정. ([[http-protocol]] PUT vs PATCH 보강 참조)
+- **POST vs PUT**: POST=생성, PUT=전체 교체. PATCH가 부분 수정. ([[HTTP-프로토콜]] PUT vs PATCH 보강 참조)
 - **API ⊃ REST API**: 모든 REST는 API지만, 모든 API가 REST는 아님 (GraphQL, gRPC, SOAP 등)
 
 ## 코드/실습 예시
@@ -124,16 +124,16 @@ https://www.apple.com/{국가코드}/
 
 ## 관련 페이지
 
-- [[http-protocol]] — REST API의 메서드 토대
-- [[database-basics]] — REST API 뒤의 저장 계층
-- [[app-web-services]] — REST API가 작동하는 WAS 구조
-- [[parsing]] — REST 응답(JSON/XML) 파싱
-- [[synchronous-vs-asynchronous]] — REST 호출의 두 모드
+- [[HTTP-프로토콜]] — REST API의 메서드 토대
+- [[데이터베이스-기초]] — REST API 뒤의 저장 계층
+- [[앱-웹-서비스]] — REST API가 작동하는 WAS 구조
+- [[파싱]] — REST 응답(JSON/XML) 파싱
+- [[동기-vs-비동기]] — REST 호출의 두 모드
 
 ## 출처
 
-- [[lectures/week-01-day-1]]
+- [[lectures/1주차-1일차]]
 - `raw/stage-1-foundations/[수업자료] 데이터베이스와 REST API.pdf` (52p, 시리즈 03강)
 - `raw/stage-1-foundations/[수업자료] 앱_웹 서비스를 위한 모든 것.pdf` (38p, 시리즈 02강에서도 REST 등장)
-- `raw/stage-1-foundations/02-database-rest-api.md` (Vision OCR 추출본)
+- `raw/stage-1-foundations/02-database-REST-API.md` (Vision OCR 추출본)
 - `raw/stage-1-foundations/01-app-web-service.md` (Vision OCR 추출본)
