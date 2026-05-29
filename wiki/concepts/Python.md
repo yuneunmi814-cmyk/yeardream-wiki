@@ -738,6 +738,105 @@ Stage 3·4  → docker / kubernetes 공식
 
 ---
 
+---
+
+## 🔮 다음 챕터 미리보기 (실습 노트북에서 등장, Day 4 미커버)
+
+> 2026-05-29 강사 실습 정답본 [[1주차-4일차-03-실습-노트북]]에서 등장. Day 5+ 학습 예상.
+
+### 1. `for` 반복문 ⭐ (Day 5 예상)
+
+```python
+for i in range(5):
+    print(i)           # 0 1 2 3 4
+
+# 리스트 순회
+fruits = ["사과", "배", "포도"]
+for fruit in fruits:
+    print(fruit)
+```
+
+→ 시나리오 4종 모두 `for` 사용. Day 5 본격 학습 예상.
+
+### 2. `enumerate` — 인덱스 + 값 동시
+
+```python
+menu = ["회원조회", "비번변경", "로그아웃"]
+for idx, item in enumerate(menu, start=1):
+    print(f"{idx}. {item}")
+# 1. 회원조회
+# 2. 비번변경
+# 3. 로그아웃
+```
+
+→ `range(len(L))` + `L[i]` 패턴의 깔끔 버전. 실무 매일.
+
+### 3. f-string — 문자열 포맷팅 ⭐ (실무 매일)
+
+```python
+name = "윤"
+age = 30
+print(f"{name}님은 {age}세")              # 윤님은 30세
+
+# 정렬·자릿수
+print(f"{name:<10}{age:>5}")               # 왼쪽 10칸 + 오른쪽 5칸
+print(f"가격: {1500000:,}원")               # 가격: 1,500,000원
+print(f"파이: {3.14159:.2f}")               # 파이: 3.14 (소수점 2자리)
+```
+
+→ `+` 이어붙이기·`str()` 변환보다 훨씬 깔끔. **너 즉시 도입 권장**.
+
+### 4. 튜플 (Tuple) — 불변 시퀀스
+
+```python
+point = (10, 20)               # 괄호 ()
+x, y = point                   # 언패킹
+
+history = []
+history.append((1, "guess", "UP"))    # 튜플 원소 추가
+```
+
+→ 리스트와 비슷하지만 **변경 불가**. 함수 여러 값 반환에 자주.
+
+### 5. `+=` `-=` 누적 연산자
+
+```python
+stocks = [10, 5, 3]
+stocks[2] -= 2                  # stocks[2] = stocks[2] - 2 단축
+revenue = 0
+revenue += 1500                 # revenue = revenue + 1500
+
+count = 0
+count += 1                      # 카운터 증가 패턴
+```
+
+→ 매일 만나는 패턴. 직관적.
+
+### 6. `break` — 반복 중단
+
+```python
+for i in range(100):
+    if i == 5:
+        break                   # 5에서 멈춤
+    print(i)                    # 0 1 2 3 4
+```
+
+→ 정답 찾으면 즉시 종료. 시나리오 3(숫자게임)에서 사용.
+
+### Day 5 학습 전 자가 진단
+
+| 항목 | 알면 OK |
+|---|---|
+| `for i in range(5)` 가 뭘 5번 하는지 | ✅ |
+| `enumerate` 가 왜 편한지 | ✅ |
+| f-string으로 출력 한 줄 쓰기 | ✅ |
+| 튜플 = 변경 불가 리스트 | ✅ |
+| `+=` 누적 패턴 | ✅ |
+
+→ 다 모르겠다 = 정상. Day 5 강의로 정복.
+
+---
+
 ## 관련 페이지
 
 - [[변수]] — Python 코드의 기초
