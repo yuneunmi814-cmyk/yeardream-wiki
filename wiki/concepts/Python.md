@@ -195,6 +195,115 @@ else :
 
 ---
 
+## 🙋 은미 정수 2 (2026-05-29) — pip + python-dotenv
+
+### pip = Python의 apt (배달 드론) ⭐
+
+| | 리눅스 | Python |
+|---|---|---|
+| 패키지 매니저 | apt (가족 비유: 심부름꾼 삼촌) | **pip** |
+| 저장소 | (Ubuntu 저장소) | **PyPI** (파이파이) |
+| 명령어 | `sudo apt install ...` | `pip install ...` |
+
+→ apt와 pip은 같은 패턴. 단 pip은 sudo 거의 필요 없음 (가상환경 안에서).
+
+### python-dotenv — `.env` 파일 자동 로딩
+
+⚠️ **흔한 오해**: `.env.py` 파일 ❌. **python-dotenv는 라이브러리 이름**.
+
+**왜 필요?**:
+- 터미널 `export 변수=값`은 휘발성 (터미널 끄면 사라짐)
+- `.env` 파일에 영구 저장하고 Python이 자동 읽게 하기
+
+**사용법** (2줄로 끝):
+
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()                              # .env 파일 자동 로딩
+
+my_password = os.environ.get("DB_PASSWORD") # 비밀번호 꺼내기
+```
+
+**설치**:
+```bash
+pip install python-dotenv
+```
+
+**비유** (Gemini): 카톡 "자동 로그인 정보 저장" 체크 → 앱이 켜질 때 자동으로 정보 읽음.
+
+### 미션 2와의 연결 ⭐
+
+너 [[미션-2-크롤링-자동화]] 도전 시 첫날 만나는 패턴:
+
+```python
+# crawl.py
+from dotenv import load_dotenv
+import os
+
+load_dotenv()                              # GitHub 토큰·API 키 로딩
+github_token = os.environ.get("GITHUB_TOKEN")
+
+# 크롤링 + git push
+```
+
+```
+.env 파일 (gitignore에 등록):
+GITHUB_TOKEN=ghp_xxxxx
+API_KEY=xxxxx
+```
+
+→ **cron + python-dotenv** = 자동화 표준 패턴.
+
+### 콘텐츠 자산화
+
+- **"Python 첫날 배우는 보안 패턴 1개"** — yoon.ai.lab
+- **"apt vs pip 5초 비교"** — prompt.by.yoon
+
+### uv — pip 차세대 (2026-05-29 강사 추천)
+
+**uv** = Astral 회사 (Ruff 만든 곳)의 Python 도구. **pip의 10~100배 빠름**.
+
+**왜?**:
+- 의존성 관리 자동
+- 가상환경 자동 생성
+- 강사 PRISMA-KB도 `uv run python ...` 사용 = 현업 진입
+
+**설치** (강사 명령어):
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv --version
+```
+
+`curl` 옵션 풀이:
+- `-L` 리다이렉트 따라가기
+- `-s` silent
+- `-S` 에러는 표시
+- `-f` 서버 에러 시 종료
+- `| sh` 다운로드한 스크립트 즉시 실행
+
+### 개발환경 세팅 체크리스트 (2026-05-29 강사 권고)
+
+> "개발환경 세팅 많이 해보는 거 추천. 잘 연습 많이하기"
+
+| # | 항목 | 도구 |
+|---|---|---|
+| 1 | 터미널 | zsh + oh-my-zsh |
+| 2 | 에디터 | VS Code / Cursor |
+| 3 | 언어 | Python 3.12 / Node.js |
+| 4 | **패키지 매니저** | **uv** ⭐ / pip / npm |
+| 5 | 가상환경 | uv / venv |
+| 6 | 버전 관리 | Git + SSH 키 |
+| 7 | **컨테이너** | **Docker Desktop** ⭐ |
+| 8 | DB | PostgreSQL·Redis (Docker) |
+| 9 | 클라우드 CLI | AWS·GCP·Cloudflare |
+| 10 | AI 도구 | Claude Code / Copilot / Cursor |
+
+→ **Stage 2 진입 첫 도전 = Python 가상환경 + Jupyter 셋업**.
+
+---
+
 ## 관련 페이지
 
 - [[변수]] — Python 코드의 기초
