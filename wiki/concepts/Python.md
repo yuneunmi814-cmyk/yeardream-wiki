@@ -302,6 +302,71 @@ uv --version
 
 → **Stage 2 진입 첫 도전 = Python 가상환경 + Jupyter 셋업**.
 
+### class (클래스) 미리보기 — "프로그래밍 90% 이해" (2026-05-29 강사)
+
+> "class를 이해하면 프로그래밍의 90%는 이해한 거다"
+
+**한 줄**: 데이터(변수) + 행동(함수)를 묶은 **설계도**.
+
+**붕어빵 비유**:
+```python
+# class = 붕어빵 틀 (설계도)
+class 붕어빵:
+    팥 = "들어있음"
+    
+    def 굽기(self):
+        return "익었다"
+
+# 객체(인스턴스) = 틀로 찍은 진짜 붕어빵
+내붕어빵 = 붕어빵()
+print(내붕어빵.팥)    # "들어있음"
+내붕어빵.굽기()       # "익었다"
+```
+
+**왜 90%?**:
+- 모던 코드 거의 다 **객체 지향(OOP)** 기반
+- Python·Swift·Java·JS 다 class
+- AI 모델 = PyTorch `nn.Module` class
+- Django·FastAPI = class 기반
+
+→ **Stage 1 지금**: 단어 인식만. **Stage 2 본격 학습**.
+
+### 자주 만나는 에러 2개 (Day 4 실습 기준, 2026-05-29)
+
+#### TypeError — 인자 개수 안 맞음
+
+```python
+print(type(3,14))    # ❌ type()은 1 또는 3개
+# TypeError: type() takes 1 or 3 arguments
+
+print(type(3.14))    # ✅ 점으로 (3.14는 1개 인자)
+```
+
+**원인**: `.` 와 `,` 헷갈림. 한국어 키보드에서 자주.
+
+#### SyntaxError: unterminated string literal — 따옴표 짝 안 맞음
+
+```python
+print('작은따옴표, 큰따옴표")    # ❌ 시작 '·끝 " 짝 ❌
+# SyntaxError: unterminated string literal
+```
+
+**원인**: 시작 따옴표와 끝 따옴표가 다름.
+
+**해결**:
+```python
+print('작은따옴표, 큰따옴표')     # ✅ 둘 다 '
+print("작은따옴표, 큰따옴표")     # ✅ 둘 다 "
+```
+
+### 강사 핵심 메시지 — "에러는 늘 나는 거" ⭐⭐
+
+> "고수는 에러를 안 내는 게 아니라 에러나면 fix it 하면 돼"
+> "에러는 그냥 늘 나는 거야"
+
+→ 5/29 오전 "고연차 vs 저연차" 메시지와 동일.
+→ **에러 = 일상**. 너 매일 정수 추출 = 에러 fix 훈련 ⭐.
+
 ### .venv = 가상환경 (Virtual Environment)
 
 **왜?**: 프로젝트 A=Django 3, 프로젝트 B=Django 5 동시 ❌ → **프로젝트별 격리 환경**.
