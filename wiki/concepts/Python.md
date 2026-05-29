@@ -302,6 +302,103 @@ uv --version
 
 → **Stage 2 진입 첫 도전 = Python 가상환경 + Jupyter 셋업**.
 
+### .venv = 가상환경 (Virtual Environment)
+
+**왜?**: 프로젝트 A=Django 3, 프로젝트 B=Django 5 동시 ❌ → **프로젝트별 격리 환경**.
+
+**비유**: 이삿짐 박스처럼 프로젝트별 분리.
+
+```bash
+uv venv                        # .venv 폴더 생성
+source .venv/bin/activate       # 활성화 (Mac)
+deactivate                      # 비활성화
+
+uv run python script.py         # 자동 활성화 + 실행 (1줄)
+```
+
+### pyproject.toml — 프로젝트 표준 설정 파일
+
+**역할**: 메타데이터 + **의존성 목록** + 빌드 설정.
+
+```toml
+[project]
+name = "my-project"
+requires-python = ">=3.12"
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "beautifulsoup4>=4.12.0",
+]
+```
+
+→ uv·pip·poetry 다 읽음. **2021 표준**.
+
+### uv 명령어 — 강사 PRISMA-KB 패턴
+
+```bash
+uv sync                            # 의존성 일괄 설치 (이삿짐 박스 풀기)
+uv add 라이브러리                   # 라이브러리 추가
+uv run python script.py            # 자동 활성화 + 실행
+uv run pytest                      # 테스트도 자동 환경
+```
+
+**실전 흐름**:
+```bash
+git clone https://github.com/dschloe/PRISMA-KB
+cd PRISMA-KB
+uv sync                            # ← 환경 완성
+uv run python scripts/compile.py   # ← 즉시 실행
+```
+
+### JupyterLab — Jupyter Notebook 진화형
+
+| | Notebook | **JupyterLab** ⭐ |
+|---|---|---|
+| 등장 | 2014 | 2018 |
+| UI | 단일 노트북 | 다중 탭·파일·터미널 통합 |
+| 느낌 | 메모장 | **미니 VS Code** |
+| 포트 | 8888 | 8888 (같음) |
+
+```bash
+uv add jupyterlab
+jupyter lab          # http://localhost:8888/lab
+```
+
+→ Stage 2 진입 시 **JupyterLab 권장** (Notebook 대신).
+
+### 공식 문서 공부법 ⭐⭐ (강사 강조)
+
+> **공식 = 개발자가 직접 쓴 진짜 정답. AI보다 정확. 항상 최신.**
+
+**언어별 공식** (너 시급도 순):
+
+| 도구 | URL | 한국어 |
+|---|---|---|
+| **Python** | docs.python.org/ko ⭐ | ✅ |
+| **Anthropic Claude API** | docs.anthropic.com ⭐ | ❌ |
+| **MDN Web Docs** | developer.mozilla.org | ✅ |
+| **FastAPI** | fastapi.tiangolo.com ⭐ | ❌ |
+| **Docker** | docs.docker.com | ❌ |
+| **Kubernetes** | kubernetes.io/docs | ✅ |
+| **Ubuntu Server** | ubuntu.com/server/docs | 일부 |
+
+**4단계 공부법**:
+1. **튜토리얼** ("Getting Started")
+2. **레퍼런스** (모르는 함수 검색, **AI 묻기 전 공식 먼저**)
+3. **가이드** ("Best Practices")
+4. **깊이** (GitHub 소스·이슈)
+
+**비유**:
+- AI = 통역사 (편함, 100% 정확 X)
+- 공식 문서 = 원어민 강의 (시간 들지만 정확)
+
+**은미 추천 순서**:
+```
+지금       → docs.python.org/ko (Stage 1·2 매일)
+지금       → docs.anthropic.com (Claude 일상)
+Stage 2~3  → fastapi.tiangolo.com
+Stage 3·4  → docker / kubernetes 공식
+```
+
 ---
 
 ## 관련 페이지
