@@ -44,10 +44,10 @@ related: [[Python]], [[AI-엔지니어-가이드]], [[현업-용어]]
 | **위키 정수 추출·복잡 풀이** | **Claude Pro** ⭐ | 깊이 사고·톤 맞춤 |
 | **자동화 워크플로우** | **Claude Code** ⭐ | 일상 사용 중 |
 | **SwiftUI·Xcode 코드** | **Copilot** 또는 **Cursor** | 에디터 통합 |
-| **콘텐츠 작성** (yoon.ai.lab) | **Claude** | 톤·캐릭터 일관성 |
+| **글 작성·정리** | **Claude** | 톤·구조 일관성 |
 | **간단 질문·검색** | Gemini 무료 / ChatGPT 무료 | 토큰 아끼기 |
 | **실시간 검색·리서치** | **Perplexity** (무료) | 출처 명시·웹 검색 |
-| **이미지 생성** (인스타) | ChatGPT (DALL-E) / Gemini | 한글 친화 |
+| **이미지 생성** | ChatGPT (DALL-E) / Gemini | 한글 친화 |
 | **긴 문서 요약** | **Gemini** | 200만 토큰 컨텍스트 |
 | **번역** | Gemini 또는 DeepL | 한↔영 정확도 |
 
@@ -138,13 +138,6 @@ console.anthropic.com 로그인
 - **Copilot** = 에디터 안 자동완성. 한 줄 칠 때 다음 줄 추천
 
 → 보완 관계. 너 SwiftUI 빈도에 따라 결정.
-
-## 콘텐츠 자산화
-
-- **"AI 부트캠프생이 매달 쓰는 도구 5개"** — yoon.ai.lab 정기
-- **"$30으로 AI 풀스택 작업 가능한 도구 조합"** — prompt.by.yoon
-- **"Claude Pro vs Max — 언제 업그레이드?"** — 의사결정 가이드
-- **"무료 도구로 Claude 토큰 70% 절약"** ⭐ — 토큰 절약 워크플로우
 
 ---
 

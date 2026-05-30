@@ -223,7 +223,7 @@ https://www.apple.com/{국가}/
 → 한 줄 코드가 전 세계 모든 나라 페이지 처리
 ```
 
-→ 사용자 일상 사례 — `instagram.com/yoon.ai.lab`·`instagram.com/prompt.by.yoon`. 같은 패턴, username만 다름.
+→ 일상 사례 — `instagram.com/{username}`. 같은 패턴, username만 다름.
 
 **🎯 핵심 메시지**: REST API = URI + HTTP 메서드. 같은 패턴 + 변수 = 글로벌 확장.
 
@@ -245,7 +245,7 @@ https://www.apple.com/{국가}/
 - 공공데이터포털 (data.go.kr) 수천 개
 - 기상청 날씨 / 국세청 사업자등록번호
 
-→ 사용자가 1인 컨설팅 솔루션 만들 때 **크롤링 대신 합법적 데이터 채널**.
+→ 서비스 만들 때 **크롤링 대신 합법적 데이터 채널**.
 
 **DBMS 4종**:
 - MySQL (Oracle 소유, 가장 흔함)

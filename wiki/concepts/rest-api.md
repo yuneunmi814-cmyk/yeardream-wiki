@@ -78,8 +78,6 @@ https://www.apple.com/{국가코드}/
 | URL | http://www.juso.go.kr/openIndexPage.do |
 | **비용** | **무료** |
 
-→ 콘텐츠 후보: "행정안전부 무료 Open API 모음" (juso.go.kr · 공공데이터포털 등)
-
 ## REST API 설계 원칙 (강의 + 일반 보강)
 
 강의에서 명시:
@@ -108,7 +106,7 @@ https://www.apple.com/{국가코드}/
 
 - **Stage 3 AI 서비스개발자 트랙 핵심 토대**
 - **AI Agent 개발의 일상**: 도구·외부 시스템 연결은 결국 REST API 호출
-- **1인 컨설팅에서 사실상 매번 부딪힘** — 외부 API 통합, 자체 백엔드 설계
+- **AI 서비스개발 일상** — 외부 API 통합·자체 백엔드 설계의 표준
 - 사용자는 Meta 광고 API·Cloudflare 등 **REST 사용 경험은 풍부** → **REST 설계** 단계가 새 영역
 
 ## 자주 헷갈리는 것

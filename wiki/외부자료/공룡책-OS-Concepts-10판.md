@@ -128,7 +128,7 @@ related: [[운영체제]], [[1주차-2일차]]
 ### 3. Ch.16~17 Security & Protection (보안)
 - **강의**: ❌ 없음
 - **책**: OS 보안 모델·접근 제어·암호화·인증
-- **활용**: 사용자 1인 컨설팅 클라이언트 솔루션 보안 의사결정
+- **활용**: 보안·접근 제어 깊이 학습 (Stage 4 프로젝트 보안 설계 토대)
 
 ### 4. Ch.18 Virtual Machines / Ch.19 Networks and Distributed Systems
 - **강의**: 컨테이너화 한 슬라이드만
